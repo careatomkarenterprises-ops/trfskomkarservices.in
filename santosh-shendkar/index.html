@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Santosh Shendkar | Founder & Management Consultant | Omkar Services Group</title>
+    <meta name="description" content="Santosh Shendkar is the founder of Omkar Services Group with 10+ years of experience in management consulting, business advisory, and financial services for MSMEs in Maharashtra.">
+    <meta name="keywords" content="Santosh Shendkar, management consultant, business advisor, MSME consultant, financial advisor Pune, Ulhasnagar">
+    <script src="/js/analytics.js"></script>
+    
+    <!-- Open Graph Tags for Social Media -->
+    <meta property="og:title" content="Santosh Shendkar | Founder & Management Consultant">
+    <meta property="og:description" content="Founder of Omkar Services Group with 10+ years of experience in management consulting and financial advisory.">
+    <meta property="og:image" content="https://omkarservices.in/assets/founder.jpg">
+    <meta property="og:url" content="https://omkarservices.in/santosh-shendkar/">
+    
+    <!-- Schema Markup for Person -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Santosh Shendkar",
+      "jobTitle": "Founder & Management Consultant",
+      "description": "Founder of Omkar Services Group with 10+ years of experience in management consulting and financial advisory",
+      "url": "https://omkarservices.in/santosh-shendkar/",
+      "image": "https://omkarservices.in/assets/founder.jpg",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Omkar Services Group"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/santosh-shendkar"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "House Opp Bk no. 684, Ulhasnagar-2",
+        "addressLocality": "Thane",
+        "addressRegion": "Maharashtra",
+        "postalCode": "421002",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: #ffffff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            padding: 20px 0;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 30px;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #1e3a8a;
+            font-weight: 500;
+            font-size: 15px;
+            padding: 8px 0;
+        }
+        
+        .back-link:hover {
+            color: #2563eb;
+        }
+        
+        /* Profile Section */
+        .profile {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 50px;
+            margin: 40px 0 60px;
+        }
+        
+        .profile-image {
+            position: relative;
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            border: 4px solid #ffffff;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.2);
+        }
+        
+        .experience-badge {
+            position: absolute;
+            bottom: -15px;
+            right: -15px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 10px 20px rgba(30,58,138,0.3);
+            border: 3px solid white;
+            text-align: center;
+            line-height: 1.2;
+        }
+        
+        .experience-badge span {
+            font-size: 12px;
+            font-weight: 400;
+            display: block;
+            opacity: 0.9;
+        }
+        
+        .profile-content h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+        
+        .profile-content h2 {
+            font-size: 22px;
+            font-weight: 500;
+            color: #475569;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .profile-content p {
+            font-size: 18px;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 50px 0;
+        }
+        
+        .stat-card {
+            background: #f8fafc;
+            padding: 30px 20px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.05);
+        }
+        
+        .stat-number {
+            font-size: 42px;
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            color: #64748b;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Portal Links */
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .portal-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .portal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+            border-color: #1e3a8a;
+        }
+        
+        .portal-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .portal-card h3 {
+            font-size: 24px;
+            color: #1e3a8a;
+            margin-bottom: 15px;
+        }
+        
+        .portal-card p {
+            color: #64748b;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        
+        .portal-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #1e3a8a;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+        
+        .portal-btn:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(30,58,138,0.2);
+        }
+        
+        .portal-btn-outline {
+            background: transparent;
+            border: 2px solid #1e3a8a;
+            color: #1e3a8a;
+        }
+        
+        .portal-btn-outline:hover {
+            background: #1e3a8a;
+            color: white;
+        }
+        
+        /* Note Section */
+        .note-section {
+            background: #fef3c7;
+            border-left: 4px solid #d97706;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 50px 0;
+            color: #92400e;
+        }
+        
+        .note-section strong {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #b45309;
+        }
+        
+        .note-section p {
+            line-height: 1.7;
+        }
+        
+        /* Timeline */
+        .timeline {
+            margin: 60px 0;
+        }
+        
+        .timeline h3 {
+            font-size: 28px;
+            color: #1e3a8a;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 25px;
+            padding: 25px;
+            background: #f8fafc;
+            border-radius: 16px;
+            border-left: 4px solid #1e3a8a;
+        }
+        
+        .timeline-year {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e3a8a;
+            min-width: 100px;
+        }
+        
+        .timeline-content h4 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: #1e293b;
+        }
+        
+        .timeline-content p {
+            color: #64748b;
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 80px;
+            padding: 50px 0 30px;
+            border-top: 1px solid #e2e8f0;
+            background: #f8fafc;
+        }
+        
+        .footer-content {
+            text-align: center;
+            color: #64748b;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #64748b;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: #1e3a8a;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .profile-content h1 { font-size: 36px; }
+        }
+        
+        @media (max-width: 768px) {
+            .profile {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .profile-image {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .stats-grid,
+            .portal-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-content h1 {
+                font-size: 32px;
+                text-align: center;
+            }
+            
+            .profile-content h2 {
+                text-align: center;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .timeline-year {
+                min-width: auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-content h1 { font-size: 28px; }
+            .stat-number { font-size: 36px; }
+            .portal-card { padding: 30px 20px; }
+            
+            .experience-badge {
+                padding: 10px 15px;
+                font-size: 16px;
+                right: -10px;
+                bottom: -10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <a href="/" class="back-link">
+                ← Back to Home
+            </a>
+        </div>
+        
+        <!-- Profile Section -->
+        <div class="profile">
+            <div class="profile-image">
+                <img src="/assets/founder.jpg" alt="Santosh Shendkar - Founder & Management Consultant" loading="lazy">
+                <div class="experience-badge">
+                    10+ <span>Years Experience</span>
+                </div>
+            </div>
+            
+            <div class="profile-content">
+                <h1>Santosh Shendkar</h1>
+                <h2>Founder & Management Consultant</h2>
+                <p>With over 10 years of experience in business consulting and financial advisory, I founded Omkar Services Group to provide professional management and technology consulting services to Maharashtra's MSME sector.</p>
+                <p>My approach combines strategic thinking with practical execution, helping businesses streamline operations, access formal credit, and achieve sustainable growth.</p>
+            </div>
+        </div>
+        
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">56+</div>
+                <div class="stat-label">Trusted Associates</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Group Companies</div>
+            </div>
+        </div>
+        
+        <!-- Portal Access -->
+        <div class="portal-grid">
+            <div class="portal-card">
+                <div class="portal-icon">🔒</div>
+                <h3>Existing Investors</h3>
+                <p>Access your personal dashboard to view investment details, payment history, and TDS certificates.</p>
+                <a href="/santosh-shendkar/private/" class="portal-btn">Investor Login →</a>
+            </div>
+            <div class="portal-card">
+                <div class="portal-icon">📊</div>
+                <h3>Institutional Investors</h3>
+                <p>Qualified investors can request access to our consolidated performance dashboard and private placement memorandum.</p>
+                <a href="/private/prospect/" class="portal-btn portal-btn-outline">Request Access →</a>
+            </div>
+        </div>
+        
+        <!-- Timeline -->
+        <div class="timeline">
+            <h3>Professional Journey</h3>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">2015</div>
+                <div class="timeline-content">
+                    <h4>Founded Omkar Enterprises</h4>
+                    <p>Started the journey in IT services and business automation for small businesses in Maharashtra.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">2023</div>
+                <div class="timeline-content">
+                    <h4>Incorporated TRFSK Omkar Services Pvt Ltd</h4>
+                    <p>Expanded into management consultancy, helping MSMEs with business strategy and loan facilitation.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">2024</div>
+                <div class="timeline-content">
+                    <h4>Expanded to Pune</h4>
+                    <p>Opened second office in Pune to better serve clients across Maharashtra.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Important Note -->
+        <div class="note-section">
+            <strong>Personal Financial Arrangements</strong>
+            <p>In my individual capacity, I have private financial arrangements with a limited circle of known associates. These are personal contracts governed by the Indian Contract Act, 1872, and are not offered to the public. All transactions are reported to tax authorities with appropriate TDS deductions (TAN: PNET17818D).</p>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-content">
+                <p>© 2015-2026 Santosh Shendkar. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="/privacy-policy.html">Privacy</a>
+                    <a href="/terms-of-service.html">Terms</a>
+                    <a href="/contact/">Contact</a>
+                </div>
+                <p style="margin-top: 20px; font-size: 12px;">CIN: U70200MH2023PTC407336 | TAN: PNET17818D | PAN: AAKCT2977J</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

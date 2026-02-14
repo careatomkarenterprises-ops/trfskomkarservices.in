@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights | Omkar Services Group - Business, Finance & Tech</title>
+    <meta name="description" content="Expert insights on business loans, MSME advisory, IT services, investment tips, and financial planning for Indian entrepreneurs.">
+    <meta name="keywords" content="business blog India, MSME advisory, investment tips, financial planning, IT services blog">
+    
+    <!-- Google Fonts for better typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: #ffffff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        
+        h1 { font-size: 48px; }
+        h2 { font-size: 36px; }
+        h3 { font-size: 24px; }
+        h4 { font-size: 20px; }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            h2 { font-size: 28px; }
+            h3 { font-size: 20px; }
+        }
+        
+        /* ===== HEADER ===== */
+        .blog-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 40px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .back-home {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .back-home:hover {
+            color: white;
+        }
+        
+        .back-home i {
+            font-size: 12px;
+        }
+        
+        .blog-title h1 {
+            color: white;
+            margin-bottom: 12px;
+            font-size: 42px;
+            font-weight: 800;
+        }
+        
+        .blog-title p {
+            color: rgba(255,255,255,0.7);
+            font-size: 18px;
+            font-weight: 400;
+            max-width: 600px;
+        }
+        
+        /* ===== CATEGORY NAVIGATION ===== */
+        .category-wrapper {
+            position: relative;
+            z-index: 2;
+            margin-top: 30px;
+        }
+        
+        .category-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+        }
+        
+        .category-nav a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .category-nav a:hover {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border-color: rgba(255,255,255,0.2);
+        }
+        
+        .category-nav a.active {
+            background: #fbbf24;
+            color: #0f172a;
+            font-weight: 600;
+            border-color: #fbbf24;
+        }
+        
+        /* ===== FEATURED POST ===== */
+        .featured-post {
+            display: grid;
+            grid-template-columns: 1fr 0.9fr;
+            gap: 48px;
+            background: white;
+            border-radius: 24px;
+            padding: 48px;
+            margin: 60px 0;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
+            border: 1px solid #f1f5f9;
+            transition: transform 0.3s;
+        }
+        
+        .featured-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 50px -15px rgba(0,0,0,0.15);
+        }
+        
+        .featured-content {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .featured-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 13px;
+            font-weight: 600;
+            width: fit-content;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
+        
+        .featured-badge i {
+            font-size: 14px;
+        }
+        
+        .featured-content h2 {
+            font-size: 36px;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+        
+        .featured-content h2 a {
+            color: #0f172a;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .featured-content h2 a:hover {
+            color: #1e3a8a;
+        }
+        
+        .featured-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .featured-meta i {
+            margin-right: 4px;
+            color: #94a3b8;
+        }
+        
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .author-avatar {
+            width: 32px;
+            height: 32px;
+            background: #1e3a8a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .featured-excerpt {
+            font-size: 16px;
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        
+        .featured-image {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 16px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-image i {
+            font-size: 80px;
+            opacity: 0.2;
+            position: absolute;
+        }
+        
+        .featured-image span {
+            font-size: 120px;
+            font-weight: 800;
+            opacity: 0.1;
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+        }
+        
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #1e3a8a;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: gap 0.2s;
+            margin-top: auto;
+        }
+        
+        .read-more:hover {
+            gap: 12px;
+            color: #2563eb;
+        }
+        
+        .read-more i {
+            font-size: 14px;
+        }
+        
+        /* ===== BUSINESS MODULE CARDS ===== */
+        .business-modules {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 60px 0;
+        }
+        
+        .module-card {
+            padding: 32px;
+            border-radius: 20px;
+            color: white;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.3);
+        }
+        
+        .module-card:hover::before {
+            opacity: 1;
+        }
+        
+        .module-trfsk { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+        .module-it { background: linear-gradient(135deg, #0f172a 0%, #334155 100%); }
+        .module-capital { background: linear-gradient(135deg, #065f46 0%, #10b981 100%); }
+        
+        .module-icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .module-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: white;
+        }
+        
+        .module-card p {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        
+        .module-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            text-decoration: none;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.2s;
+        }
+        
+        .module-btn:hover {
+            background: rgba(255,255,255,0.25);
+            gap: 12px;
+        }
+        
+        /* ===== BLOG GRID ===== */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+        
+        .section-header h2 {
+            color: #0f172a;
+            font-size: 28px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
+            border-radius: 2px;
+        }
+        
+        .view-all {
+            color: #1e3a8a;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .blog-card {
+            background: white;
+            border: 1px solid #f1f5f9;
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+            border-color: #e2e8f0;
+        }
+        
+        .card-category {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 30px;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            width: fit-content;
+            margin-bottom: 20px;
+            letter-spacing: 0.3px;
+        }
+        
+        .card-category i {
+            font-size: 12px;
+        }
+        
+        .blog-card h3 {
+            font-size: 20px;
+            line-height: 1.4;
+            margin-bottom: 12px;
+            flex: 1;
+        }
+        
+        .blog-card h3 a {
+            color: #0f172a;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .blog-card h3 a:hover {
+            color: #1e3a8a;
+        }
+        
+        .card-meta {
+            color: #64748b;
+            font-size: 13px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .card-meta i {
+            color: #94a3b8;
+        }
+        
+        .card-excerpt {
+            color: #475569;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .card-link {
+            color: #1e3a8a;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: auto;
+        }
+        
+        .card-link i {
+            font-size: 12px;
+            transition: transform 0.2s;
+        }
+        
+        .card-link:hover i {
+            transform: translateX(4px);
+        }
+        
+        /* ===== NEWSLETTER ===== */
+        .newsletter-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 30px;
+            padding: 60px;
+            margin: 60px 0;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .newsletter-content h3 {
+            font-size: 32px;
+            color: #0f172a;
+            margin-bottom: 16px;
+        }
+        
+        .newsletter-content p {
+            color: #475569;
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            background: white;
+            padding: 8px;
+            border-radius: 60px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 40px;
+            font-size: 15px;
+            outline: none;
+        }
+        
+        .newsletter-form input::placeholder {
+            color: #94a3b8;
+        }
+        
+        .newsletter-form button {
+            padding: 14px 32px;
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            border-radius: 40px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        
+        .newsletter-form button:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(30,58,138,0.3);
+        }
+        
+        .privacy-note {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 16px;
+        }
+        
+        /* ===== POPULAR TOPICS ===== */
+        .popular-topics {
+            margin: 60px 0 40px;
+        }
+        
+        .popular-topics h3 {
+            font-size: 20px;
+            color: #0f172a;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .popular-topics h3 i {
+            color: #fbbf24;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tags a {
+            padding: 8px 16px;
+            background: #f8fafc;
+            border-radius: 40px;
+            color: #475569;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .tags a:hover {
+            background: #1e3a8a;
+            color: white;
+            border-color: #1e3a8a;
+        }
+        
+        /* ===== FOOTER ===== */
+        .blog-footer {
+            background: #0f172a;
+            color: white;
+            padding: 60px 0 40px;
+            margin-top: 80px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-about {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        
+        .footer-about h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-links h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid #1e293b;
+            text-align: center;
+            color: #64748b;
+            font-size: 13px;
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .business-modules,
+            .blog-grid,
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .featured-post {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .business-modules,
+            .blog-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-post {
+                padding: 32px;
+            }
+            
+            .featured-content h2 {
+                font-size: 28px;
+            }
+            
+            .newsletter-section {
+                padding: 40px 24px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                background: transparent;
+                padding: 0;
+                box-shadow: none;
+            }
+            
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+                border-radius: 40px;
+            }
+            
+            .category-nav {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 10px;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .category-nav::-webkit-scrollbar {
+                display: none;
+            }
+            
+            .category-nav a {
+                white-space: nowrap;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .featured-post {
+                padding: 24px;
+            }
+            
+            .featured-meta {
+                flex-wrap: wrap;
+            }
+            
+            .blog-card {
+                padding: 24px;
+            }
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .blog-card {
+            animation: fadeIn 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        .blog-card:nth-child(2) { animation-delay: 0.1s; }
+        .blog-card:nth-child(3) { animation-delay: 0.2s; }
+        .blog-card:nth-child(4) { animation-delay: 0.3s; }
+        .blog-card:nth-child(5) { animation-delay: 0.4s; }
+        .blog-card:nth-child(6) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="blog-header">
+        <div class="container">
+            <div class="header-top">
+                <a href="/" class="back-home">
+                    <i class="fas fa-arrow-left"></i> Omkar Services Group
+                </a>
+                <div class="blog-title">
+                    <h1>Insights & Perspectives</h1>
+                    <p>Expert analysis for entrepreneurs, investors, and business leaders</p>
+                </div>
+            </div>
+            
+            <!-- Category Navigation -->
+            <div class="category-wrapper">
+                <div class="category-nav">
+                    <a href="/blog/" class="active"><i class="fas fa-compass"></i> All</a>
+                    <a href="/blog/category/business-loans.html"><i class="fas fa-hand-holding-usd"></i> Business Loans</a>
+                    <a href="/blog/category/msme-advisory.html"><i class="fas fa-chart-line"></i> MSME Advisory</a>
+                    <a href="/blog/category/it-services.html"><i class="fas fa-laptop-code"></i> IT & Tech</a>
+                    <a href="/blog/category/investment-tips.html"><i class="fas fa-coins"></i> Investment Tips</a>
+                    <a href="/blog/category/financial-planning.html"><i class="fas fa-calculator"></i> Financial Planning</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Featured Post -->
+        <div class="featured-post fade-in">
+            <div class="featured-content">
+                <span class="featured-badge">
+                    <i class="fas fa-star"></i> Featured Article
+                </span>
+                <h2>
+                    <a href="/blog/post/business-loan-eligibility-msme.html">
+                        Complete Guide to Business Loan Eligibility for MSMEs in 2026
+                    </a>
+                </h2>
+                <div class="featured-meta">
+                    <span class="author">
+                        <span class="author-avatar">SS</span>
+                        Santosh Shendkar
+                    </span>
+                    <span><i class="far fa-calendar"></i> Feb 14, 2026</span>
+                    <span><i class="far fa-clock"></i> 8 min read</span>
+                </div>
+                <p class="featured-excerpt">
+                    Understanding what banks look for when approving business loans. From CIBIL score requirements to GST returns and ITR filings – a complete checklist for MSME owners to improve their chances of approval.
+                </p>
+                <a href="/blog/post/business-loan-eligibility-msme.html" class="read-more">
+                    Read full article <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="featured-image">
+                <i class="fas fa-chart-pie"></i>
+                <span>📊</span>
+            </div>
+        </div>
+
+        <!-- Business Module Cards -->
+        <div class="business-modules">
+            <div class="module-card module-trfsk">
+                <div class="module-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                <h3>Need a Business Loan?</h3>
+                <p>We're DSA partners with 15+ banks including HDFC, Axis, Kotak. Get personalized assistance for your loan application.</p>
+                <a href="/trfsk/" class="module-btn">
+                    Explore Loan Services <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="module-card module-it">
+                <div class="module-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>Need IT Support?</h3>
+                <p>Professional web development, software consulting, and business automation solutions for growing companies.</p>
+                <a href="/omkar-enterprises/" class="module-btn">
+                    View IT Services <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="module-card module-capital">
+                <div class="module-icon"><i class="fas fa-coins"></i></div>
+                <h3>Investment Opportunities</h3>
+                <p>For qualified investors. Request access to our private placement memorandum and consolidated performance data.</p>
+                <a href="/private/prospect/" class="module-btn">
+                    Investor Portal <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Latest Articles Section -->
+        <div class="section-header">
+            <h2>Latest Articles</h2>
+            <a href="/blog/" class="view-all">
+                View all <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- Blog Grid -->
+        <div class="blog-grid">
+            <!-- Post 1 -->
+            <div class="blog-card">
+                <span class="card-category" style="background: #1e3a8a;">
+                    <i class="fas fa-hand-holding-usd"></i> Business Loans
+                </span>
+                <h3><a href="/blog/post/gst-return-filing-guide-2026.html">GST Return Filing: Complete Guide for Small Business Owners</a></h3>
+                <div class="card-meta">
+                    <i class="far fa-calendar"></i> Feb 10, 2026
+                    <i class="far fa-clock" style="margin-left: 12px;"></i> 6 min
+                </div>
+                <p class="card-excerpt">Step-by-step guide to filing GSTR-1, GSTR-3B, and annual returns. Common mistakes to avoid and deadlines for 2026...</p>
+                <a href="/blog/post/gst-return-filing-guide-2026.html" class="card-link">
+                    Read more <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Post 2 -->
+            <div class="blog-card">
+                <span class="card-category" style="background: #2563eb;">
+                    <i class="fas fa-laptop-code"></i> IT Services
+                </span>
+                <h3><a href="/blog/post/website-cost-for-small-business.html">How Much Does a Business Website Cost in India? (2026 Guide)</a></h3>
+                <div class="card-meta">
+                    <i class="far fa-calendar"></i> Feb 5, 2026
+                    <i class="far fa-clock" style="margin-left: 12px;"></i> 5 min
+                </div>
+                <p class="card-excerpt">Breakdown of website costs for small businesses: domain, hosting, development, maintenance. What you need vs what you don't...</p>
+                <a href="/blog/post/website-cost-for-small-business.html" class="card-link">
+                    Read more <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Post 3 -->
+            <div class="blog-card">
+                <span class="card-category" style="background: #059669;">
+                    <i class="fas fa-coins"></i> Investment Tips
+                </span>
+                <h3><a href="/blog/post/passive-income-options-india.html">7 Passive Income Options for Indian Investors (2026)</a></h3>
+                <div class="card-meta">
+                    <i class="far fa-calendar"></i> Feb 1, 2026
+                    <i class="far fa-clock" style="margin-left: 12px;"></i> 7 min
+                </div>
+                <p class="card-excerpt">From fixed deposits to private lending, REITs, and more. Risk-return analysis of popular passive income avenues...</p>
+                <a href="/blog/post/passive-income-options-india.html" class="card-link">
+                    Read more <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Post 4 -->
+            <div class="blog-card">
+                <span class="card-category" style="background: #1e3a8a;">
+                    <i class="fas fa-chart-line"></i> MSME Advisory
+                </span>
+                <h3><a href="/blog/post/udyam-registration-benefits.html">Udyam Registration: 8 Benefits Every MSME Must Know</a></h3>
+                <div class="card-meta">
+                    <i class="far fa-calendar"></i> Jan 28, 2026
+                    <i class="far fa-clock" style="margin-left: 12px;"></i> 5 min
+                </div>
+                <p class="card-excerpt">Collateral-free loans, subsidy benefits, priority sector lending – how Udyam registration helps your business...</p>
+                <a href="/blog/post/udyam-registration-benefits.html" class="card-link">
+                    Read more <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Post 5 -->
+            <div class="blog-card">
+                <span class="card-category" style="background: #059669;">
+                    <i class="fas fa-calculator"></i> Financial Planning
+                </span>
+                <h3><a href="/blog/post/tax-saving-tips-salaried.html">Tax Saving Tips for Salaried Employees: FY 2025-26</a></h3>
+                <div class="card-meta">
+                    <i class="far fa-calendar"></i> Jan 20, 2026
+                    <i class="far fa-clock" style="margin-left: 12px;"></i> 6 min
+                </div>
+                <p class="card-excerpt">Section 80C, 80D, HRA exemption, and new tax regime vs old – which is better for you?...</p>
+                <a href="/blog/post/tax-saving-tips-salaried.html" class="card-link">
+                    Read more <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Post 6 -->
+            <div class="blog-card">
+                <span class="card-category" style="background: #2563eb;">
+                    <i class="fas fa-robot"></i> IT Services
+                </span>
+                <h3><a href="/blog/post/business-automation-tools.html">Top Business Automation Tools for MSMEs in 2026</a></h3>
+                <div class="card-meta">
+                    <i class="far fa-calendar"></i> Jan 15, 2026
+                    <i class="far fa-clock" style="margin-left: 12px;"></i> 4 min
+                </div>
+                <p class="card-excerpt">CRM, accounting software, inventory management – affordable tools that save time and reduce errors...</p>
+                <a href="/blog/post/business-automation-tools.html" class="card-link">
+                    Read more <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Newsletter Section -->
+        <div class="newsletter-section">
+            <div class="newsletter-content">
+                <h3>📥 Get Insights Delivered</h3>
+                <p>Join 1,000+ entrepreneurs and investors who receive our weekly newsletter with actionable business and financial advice.</p>
+                <form class="newsletter-form" action="#" method="POST">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <p class="privacy-note">No spam. Unsubscribe anytime. We respect your privacy.</p>
+            </div>
+        </div>
+
+        <!-- Popular Topics -->
+        <div class="popular-topics">
+            <h3><i class="fas fa-fire"></i> Popular Topics</h3>
+            <div class="tags">
+                <a href="/blog/category/business-loans.html">#BusinessLoans</a>
+                <a href="/blog/category/msme-advisory.html">#MSME</a>
+                <a href="/blog/category/investment-tips.html">#PassiveIncome</a>
+                <a href="/blog/category/financial-planning.html">#TaxSaving</a>
+                <a href="/blog/category/it-services.html">#WebsiteCost</a>
+                <a href="/blog/category/business-loans.html">#LoanEligibility</a>
+                <a href="/blog/category/investment-tips.html">#PrivateLending</a>
+                <a href="/blog/category/msme-advisory.html">#GST</a>
+                <a href="/blog/category/financial-planning.html">#RetirementPlanning</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="blog-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h4>Omkar Services Group</h4>
+                    <p>Providing professional management consultancy, IT services, and private capital solutions to businesses and investors since 2015.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Our Businesses</h4>
+                    <ul>
+                        <li><a href="/trfsk/"><i class="fas fa-chevron-right"></i> TRFSK Management Consultancy</a></li>
+                        <li><a href="/omkar-enterprises/"><i class="fas fa-chevron-right"></i> Omkar Enterprises IT Services</a></li>
+                        <li><a href="/santosh-shendkar/"><i class="fas fa-chevron-right"></i> Private Capital</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Blog Categories</h4>
+                    <ul>
+                        <li><a href="/blog/category/business-loans.html"><i class="fas fa-chevron-right"></i> Business Loans</a></li>
+                        <li><a href="/blog/category/msme-advisory.html"><i class="fas fa-chevron-right"></i> MSME Advisory</a></li>
+                        <li><a href="/blog/category/it-services.html"><i class="fas fa-chevron-right"></i> IT & Tech</a></li>
+                        <li><a href="/blog/category/investment-tips.html"><i class="fas fa-chevron-right"></i> Investment Tips</a></li>
+                        <li><a href="/blog/category/financial-planning.html"><i class="fas fa-chevron-right"></i> Financial Planning</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="/contact/"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                        <li><a href="/santosh-shendkar/"><i class="fas fa-chevron-right"></i> About Santosh</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2015-2026 Omkar Services Group. All rights reserved. CIN: U70200MH2023PTC407336</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

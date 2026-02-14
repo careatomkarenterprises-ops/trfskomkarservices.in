@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Placement - Institutional Access</title>
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0b1e33 0%, #1a2f45 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .login-container {
+            background: white;
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 440px;
+        }
+        
+        h1 {
+            color: #1e3a8a;
+            font-size: 28px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        
+        .badge {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
+        
+        .subtitle {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 32px;
+            line-height: 1.6;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #1e3a8a;
+            box-shadow: 0 0 0 3px rgba(30,58,138,0.1);
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 16px;
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 16px;
+        }
+        
+        .btn:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+            box-shadow: 0 10px 25px rgba(30,58,138,0.3);
+        }
+        
+        .legal-note {
+            margin-top: 32px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 10px;
+            font-size: 12px;
+            color: #475569;
+            border-left: 4px solid #1e3a8a;
+        }
+        
+        .legal-note strong {
+            color: #1e3a8a;
+        }
+        
+        .error {
+            color: #dc2626;
+            font-size: 14px;
+            margin-top: 12px;
+            display: none;
+            background: #fee2e2;
+            padding: 12px;
+            border-radius: 8px;
+        }
+        
+        .footer {
+            margin-top: 32px;
+            text-align: center;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <span class="badge">⚡ PRIVATE PLACEMENT • VERIFIED INSTITUTIONAL INVESTORS ONLY</span>
+        
+        <h1>TRFSK Capital Partners</h1>
+        <div class="subtitle">
+            Confidential Information Memorandum<br>
+            Not for public distribution
+        </div>
+        
+        <div class="form-group">
+            <label>ACCESS CODE</label>
+            <input type="password" id="accessCode" placeholder="Enter confidential access code" autofocus>
+        </div>
+        
+        <button class="btn" onclick="verifyAccess()">CONTINUE TO DISCLOSURES →</button>
+        
+        <div class="error" id="errorMessage">
+            Invalid access code. This portal is for qualified institutional investors only.
+            <br>
+            <span style="font-size: 12px; margin-top: 8px; display: block;">Contact Santosh Shendkar for authorized access.</span>
+        </div>
+        
+        <div class="legal-note">
+            <strong>⚠️ STRICT CONFIDENTIALITY</strong>
+            <p style="margin-top: 8px;">
+                By accessing this portal, you acknowledge that all information contained herein is 
+                STRICTLY CONFIDENTIAL and proprietary to TRFSK Omkar Services Pvt Ltd and Santosh Shendkar.
+                This information is being provided solely to qualified institutional investors for the 
+                purpose of evaluating a potential private placement and may not be copied, distributed, 
+                or disclosed to any other party without express written consent.
+            </p>
+        </div>
+        
+        <div class="footer">
+            <p>© 2015-2026 TRFSK Capital Partners. All rights reserved.</p>
+            <p style="margin-top: 8px;">Regulated by the Companies Act, 2013 • Private Placement under Section 42</p>
+        </div>
+    </div>
+
+    <script>
+        // 🔐 SINGLE MASTER PASSWORD FOR ALL PROSPECTS
+        // Change this to whatever you want
+        const MASTER_ACCESS_CODE = 'OMKAR2026';
+        
+        function verifyAccess() {
+            const code = document.getElementById('accessCode').value.trim();
+            const errorEl = document.getElementById('errorMessage');
+            
+            if (code === MASTER_ACCESS_CODE) {
+                // Store prospect session
+                sessionStorage.setItem('prospectAccess', 'granted');
+                sessionStorage.setItem('prospectTimestamp', new Date().toISOString());
+                
+                // Redirect to legal declarations
+                window.location.href = 'declaration.html';
+            } else {
+                errorEl.style.display = 'block';
+            }
+        }
+        
+        // Auto-focus
+        document.getElementById('accessCode').focus();
+    </script>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Investor Login - Santosh Shendkar Private Portal</title>
+    <meta name="robots" content="noindex, nofollow">
+    <script src="config.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0b1e33 0%, #1a2f45 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            width: 100%;
+            max-width: 440px;
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .lock-icon {
+            width: 70px;
+            height: 70px;
+            background: #1e3a8a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 32px;
+        }
+        
+        h1 {
+            color: #1e3a8a;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            color: #64748b;
+            font-size: 14px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 14px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #1e3a8a;
+            box-shadow: 0 0 0 3px rgba(30,58,138,0.1);
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 16px;
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 16px;
+        }
+        
+        .btn:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30,58,138,0.3);
+        }
+        
+        .btn:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .note {
+            margin-top: 32px;
+            padding: 20px;
+            background: #fef3c7;
+            border-left: 4px solid #d97706;
+            border-radius: 12px;
+            font-size: 13px;
+            color: #92400e;
+            line-height: 1.6;
+        }
+        
+        .error {
+            color: #dc2626;
+            font-size: 14px;
+            margin-top: 12px;
+            display: none;
+            background: #fee2e2;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f1f5f9;
+            border-top-color: #1e3a8a;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .footer-note {
+            margin-top: 24px;
+            text-align: center;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+        
+        /* Mobile Optimization */
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 24px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            input, .btn {
+                padding: 14px;
+            }
+        }
+        
+        /* Touch Optimization */
+        @media (hover: none) {
+            .btn:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <div class="lock-icon">🔒</div>
+            <h1>Private Investor Portal</h1>
+            <div class="subtitle">Santosh Shendkar - Existing Associates Only</div>
+        </div>
+        
+        <div id="loginForm">
+            <div class="form-group">
+                <label>Registered Mobile Number</label>
+                <input type="tel" id="mobile" placeholder="10-digit mobile number" autocomplete="off" inputmode="numeric">
+            </div>
+            
+            <div class="form-group">
+                <label>Access Code</label>
+                <input type="password" id="password" placeholder="Enter your access code">
+            </div>
+            
+            <button class="btn" id="loginBtn" onclick="handleLogin()">Access Dashboard →</button>
+        </div>
+        
+        <div id="loadingState" class="loading" style="display: none;">
+            <div class="loading-spinner"></div>
+            <div>Loading your portfolio...</div>
+        </div>
+        
+        <div class="error" id="errorMessage">
+            Invalid mobile number or access code. Please try again.
+        </div>
+        
+        <div class="note">
+            <strong>⚠️ Important:</strong> This portal is for existing investors only. Data updates automatically from our records. For assistance, contact Santosh directly.
+        </div>
+        
+        <div class="footer-note">
+            <a href="/santosh-shendkar/" style="color: #64748b; text-decoration: none;">← Back to Profile</a>
+        </div>
+    </div>
+
+    <script>
+        let investorDatabase = null;
+        
+        (async function() {
+            const loadingEl = document.getElementById('loadingState');
+            const loginForm = document.getElementById('loginForm');
+            
+            loadingEl.style.display = 'block';
+            loginForm.style.display = 'none';
+            
+            investorDatabase = await fetchInvestorData();
+            
+            loadingEl.style.display = 'none';
+            loginForm.style.display = 'block';
+            document.getElementById('mobile').focus();
+        })();
+
+        async function handleLogin() {
+            const mobile = document.getElementById('mobile').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorEl = document.getElementById('errorMessage');
+            const loginBtn = document.getElementById('loginBtn');
+            
+            const cleanMobile = mobile.replace(/[^0-9]/g, '').slice(-10);
+            
+            if (!investorDatabase) {
+                investorDatabase = await fetchInvestorData();
+            }
+            
+            // Master login for you
+            if (cleanMobile === '8169302861' && password === GOOGLE_SHEETS_CONFIG.MASTER_PASSWORD) {
+                sessionStorage.setItem('investorMobile', cleanMobile);
+                sessionStorage.setItem('isLoggedIn', 'true');
+                sessionStorage.setItem('isMaster', 'true');
+                window.location.href = 'dashboard.html';
+                return;
+            }
+            
+            // Investor login - check by unique key (name + mobile)
+            let foundInvestor = null;
+            for (let key in investorDatabase) {
+                if (key.includes(cleanMobile) || key.includes(password)) {
+                    foundInvestor = investorDatabase[key];
+                    break;
+                }
+            }
+            
+            if (foundInvestor) {
+                // Simple password check - last 4 digits of mobile
+                const defaultPassword = cleanMobile.slice(-4);
+                if (password === defaultPassword || password === cleanMobile) {
+                    sessionStorage.setItem('investorMobile', cleanMobile);
+                    sessionStorage.setItem('isLoggedIn', 'true');
+                    window.location.href = 'dashboard.html';
+                    return;
+                }
+            }
+            
+            errorEl.style.display = 'block';
+            loginBtn.disabled = false;
+        }
+        
+        // Auto-format mobile input
+        document.getElementById('mobile').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+        });
+    </script>
+</body>
+</html>

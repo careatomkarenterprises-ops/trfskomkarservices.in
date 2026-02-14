@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>My Portfolio - Santosh Shendkar Investor Portal</title>
+    <meta name="robots" content="noindex, nofollow">
+    <script src="config.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .header h1 {
+            color: #1e3a8a;
+            font-size: 24px;
+        }
+        
+        .investor-info {
+            color: #64748b;
+            font-size: 15px;
+        }
+        
+        .logout-btn {
+            padding: 10px 20px;
+            background: #f1f5f9;
+            border: none;
+            border-radius: 30px;
+            color: #475569;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .logout-btn:hover {
+            background: #e2e8f0;
+            color: #1e293b;
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            border-left: 4px solid #1e3a8a;
+        }
+        
+        .stat-label {
+            font-size: 13px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1e293b;
+            line-height: 1.2;
+        }
+        
+        .stat-sub {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 5px;
+        }
+        
+        /* Section Title */
+        .section-title {
+            font-size: 22px;
+            color: #1e3a8a;
+            margin: 30px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Investments Table */
+        .investments-table {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            margin-bottom: 30px;
+        }
+        
+        .table-header {
+            display: grid;
+            grid-template-columns: 1.5fr 1.5fr 1fr 1.5fr 1fr;
+            background: #f8fafc;
+            padding: 16px 20px;
+            font-weight: 600;
+            color: #1e293b;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .table-row {
+            display: grid;
+            grid-template-columns: 1.5fr 1.5fr 1fr 1.5fr 1fr;
+            padding: 16px 20px;
+            border-bottom: 1px solid #e2e8f0;
+            align-items: center;
+        }
+        
+        .table-row:last-child {
+            border-bottom: none;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #dcfce7;
+            color: #166534;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        /* TDS Section */
+        .tds-section {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 4px solid #059669;
+        }
+        
+        .tds-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .tds-item {
+            background: #f0fdf4;
+            padding: 20px;
+            border-radius: 12px;
+        }
+        
+        .tds-label {
+            font-size: 12px;
+            color: #166534;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        
+        .tds-value {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        /* Loading States */
+        .loading {
+            text-align: center;
+            padding: 60px;
+            background: white;
+            border-radius: 16px;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f1f5f9;
+            border-top-color: #1e3a8a;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .error-state {
+            text-align: center;
+            padding: 60px;
+            background: white;
+            border-radius: 16px;
+            color: #991b1b;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #64748b;
+            font-size: 13px;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 40px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .table-header, .table-row {
+                grid-template-columns: 1fr 1fr 1fr;
+                font-size: 14px;
+                gap: 10px;
+            }
+            
+            .tds-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-value {
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .table-header {
+                display: none;
+            }
+            
+            .table-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                padding: 20px;
+                border-bottom: 2px solid #e2e8f0;
+            }
+            
+            .table-row > div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .table-row > div:before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: #64748b;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div>
+                <h1>🔒 My Portfolio</h1>
+                <div class="investor-info" id="investorNameDisplay">Loading...</div>
+            </div>
+            <button class="logout-btn" onclick="logout()">Logout →</button>
+        </div>
+        
+        <!-- Dashboard Content -->
+        <div id="dashboardContent" style="display: none;">
+            <div class="stats-grid" id="summaryCards"></div>
+            
+            <h2 class="section-title">📊 Your Investments</h2>
+            <div class="investments-table" id="investmentsTable"></div>
+            
+            <div class="tds-section" id="tdsSection"></div>
+        </div>
+        
+        <!-- Loading State -->
+        <div id="loadingState" class="loading">
+            <div class="loading-spinner"></div>
+            <h3>Loading your portfolio...</h3>
+            <p style="color: #64748b; margin-top: 10px;">Please wait while we fetch your data</p>
+        </div>
+        
+        <!-- Error State -->
+        <div id="errorState" class="error-state" style="display: none;">
+            <div style="font-size: 48px; margin-bottom: 20px;">⚠️</div>
+            <h3>Unable to load data</h3>
+            <p style="color: #64748b; margin: 15px 0;">Please try again or contact Santosh</p>
+            <button onclick="location.reload()" style="padding: 12px 24px; background: #1e3a8a; color: white; border: none; border-radius: 8px; cursor: pointer;">Retry</button>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2015-2026 Santosh Shendkar. Data auto-updates from official records.</p>
+            <p style="margin-top: 10px;">
+                <a href="/santosh-shendkar/" style="color: #64748b; text-decoration: none;">← Back to Profile</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        (async function() {
+            const investorMobile = sessionStorage.getItem('investorMobile');
+            const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+            
+            if (!isLoggedIn || !investorMobile) {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            try {
+                // Fetch investor data
+                const allInvestors = await fetchInvestorData();
+                
+                if (!allInvestors || !allInvestors.investors) {
+                    throw new Error('No investor data received');
+                }
+                
+                // Find investor by mobile
+                let investorData = null;
+                for (let key in allInvestors.investors) {
+                    if (key.includes(investorMobile)) {
+                        investorData = allInvestors.investors[key];
+                        break;
+                    }
+                }
+                
+                if (!investorData) {
+                    throw new Error(`Investor with mobile ${investorMobile} not found`);
+                }
+                
+                // Hide loading, show dashboard
+                document.getElementById('loadingState').style.display = 'none';
+                document.getElementById('dashboardContent').style.display = 'block';
+                
+                // Display investor name
+                document.getElementById('investorNameDisplay').innerHTML = `Welcome, <strong>${investorData.name}</strong>`;
+                
+                // Calculate totals
+                const totalPrincipal = investorData.totalPrincipal || 0;
+                const totalInvestments = investorData.investments?.length || 0;
+                
+                // Calculate monthly interest
+                let totalMonthlyInterest = 0;
+                if (investorData.investments) {
+                    investorData.investments.forEach(inv => {
+                        const monthly = (inv.principal * (inv.rate || 0) / 100) / 12;
+                        totalMonthlyInterest += monthly;
+                    });
+                }
+                
+                // Summary Cards
+                document.getElementById('summaryCards').innerHTML = `
+                    <div class="stat-card">
+                        <div class="stat-label">Total Principal</div>
+                        <div class="stat-value">₹${totalPrincipal.toLocaleString('en-IN')}</div>
+                        <div class="stat-sub">Across ${totalInvestments} investments</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Monthly Interest</div>
+                        <div class="stat-value">₹${Math.round(totalMonthlyInterest).toLocaleString('en-IN')}</div>
+                        <div class="stat-sub">Before TDS</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Annual Return</div>
+                        <div class="stat-value">₹${Math.round(totalMonthlyInterest * 12).toLocaleString('en-IN')}</div>
+                        <div class="stat-sub">Estimated</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">TDS @10%</div>
+                        <div class="stat-value">₹${Math.round(totalMonthlyInterest * 12 * 0.1).toLocaleString('en-IN')}</div>
+                        <div class="stat-sub">FY 2025-26</div>
+                    </div>
+                `;
+                
+                // Investments Table
+                let investmentsHTML = '<div class="table-header"><div>Date</div><div>Principal</div><div>Rate</div><div>Monthly</div><div>Status</div></div>';
+                
+                if (investorData.investments && investorData.investments.length > 0) {
+                    investorData.investments.forEach(inv => {
+                        const monthlyInterest = (inv.principal * (inv.rate || 0) / 100) / 12;
+                        investmentsHTML += `
+                            <div class="table-row">
+                                <div data-label="Date">${inv.date || 'N/A'}</div>
+                                <div data-label="Principal">₹${inv.principal.toLocaleString('en-IN')}</div>
+                                <div data-label="Rate">${inv.rate || 0}%</div>
+                                <div data-label="Monthly">₹${Math.round(monthlyInterest).toLocaleString('en-IN')}</div>
+                                <div data-label="Status"><span class="badge">Active</span></div>
+                            </div>
+                        `;
+                    });
+                } else {
+                    investmentsHTML += '<div class="table-row"><div colspan="5" style="text-align: center; padding: 30px;">No investments found</div></div>';
+                }
+                
+                document.getElementById('investmentsTable').innerHTML = investmentsHTML;
+                
+                // TDS Section
+                document.getElementById('tdsSection').innerHTML = `
+                    <h3 style="color: #059669; margin-bottom: 15px;">✅ TDS Compliance</h3>
+                    <div class="tds-grid">
+                        <div class="tds-item">
+                            <div class="tds-label">TAN</div>
+                            <div class="tds-value">PNET17818D</div>
+                        </div>
+                        <div class="tds-item">
+                            <div class="tds-label">TDS Deducted</div>
+                            <div class="tds-value">₹${Math.round(totalMonthlyInterest * 12 * 0.1).toLocaleString('en-IN')}</div>
+                        </div>
+                        <div class="tds-item">
+                            <div class="tds-label">Form 16A</div>
+                            <div class="tds-value">Available</div>
+                        </div>
+                    </div>
+                `;
+                
+            } catch (error) {
+                console.error('Dashboard error:', error);
+                document.getElementById('loadingState').style.display = 'none';
+                document.getElementById('errorState').style.display = 'block';
+                document.getElementById('errorState').innerHTML = `
+                    <div style="font-size: 48px; margin-bottom: 20px;">⚠️</div>
+                    <h3>Unable to load data</h3>
+                    <p style="color: #64748b; margin: 15px 0;">${error.message}</p>
+                    <button onclick="location.reload()" style="padding: 12px 24px; background: #1e3a8a; color: white; border: none; border-radius: 8px; cursor: pointer;">Retry</button>
+                `;
+            }
+        })();
+        
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

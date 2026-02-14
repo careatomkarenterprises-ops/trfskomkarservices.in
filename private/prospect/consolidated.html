@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consolidated Portfolio - TRFSK Capital Partners</title>
+    <meta name="robots" content="noindex, nofollow">
+    <script src="config.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f1f5f9;
+            color: #0f172a;
+            padding: 30px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #0b1e33 0%, #1a2f45 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .badge {
+            background: #fbbf24;
+            color: #1e3a8a;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        h1 {
+            font-size: 36px;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+        
+        .prospect-info {
+            background: rgba(255,255,255,0.1);
+            padding: 16px 20px;
+            border-radius: 12px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+            margin-top: 20px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-bottom: 4px solid #1e3a8a;
+            transition: transform 0.2s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        
+        .stat-value {
+            font-size: 42px;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        
+        .stat-trend {
+            font-size: 14px;
+            color: #059669;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .chart-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        
+        .chart-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e3a8a;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .metric-item {
+            background: #f8fafc;
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 4px solid #1e3a8a;
+        }
+        
+        .metric-label {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+        
+        .metric-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        
+        .metric-sub {
+            font-size: 13px;
+            color: #64748b;
+            margin-top: 8px;
+        }
+        
+        .investor-breakdown {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .breakdown-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        
+        .pillar-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .pillar-item {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .pillar-name {
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .pillar-value {
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        
+        .disclaimer-box {
+            background: #fef3c7;
+            border-left: 4px solid #92400e;
+            padding: 24px;
+            border-radius: 12px;
+            margin-top: 30px;
+            color: #92400e;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        
+        .footer {
+            margin-top: 48px;
+            text-align: center;
+            color: #64748b;
+            font-size: 13px;
+            padding: 24px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        @media (max-width: 768px) {
+            .stats-grid,
+            .metrics-grid,
+            .pillar-list {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .stat-value {
+                font-size: 32px;
+            }
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 60px;
+            background: white;
+            border-radius: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <span class="badge">⚡ PRIVATE PLACEMENT • CONFIDENTIAL</span>
+            <h1>Consolidated Portfolio</h1>
+            <p style="font-size: 18px; opacity: 0.9; margin-bottom: 20px;">TRFSK Capital Partners • Private Placement Program</p>
+            
+            <div class="prospect-info" id="prospectInfo">
+                Loading prospect information...
+            </div>
+        </div>
+        
+        <div id="dashboardContent" style="display: none;">
+            <!-- KEY METRICS - CONSOLIDATED -->
+            <div class="stats-grid" id="consolidatedStats"></div>
+            
+            <!-- PERFORMANCE METRICS -->
+            <div class="metrics-grid" id="performanceMetrics"></div>
+            
+            <!-- ASSET ALLOCATION PILLARS -->
+            <div class="investor-breakdown">
+                <div class="breakdown-header">
+                    <div class="chart-title">
+                        <span>📊</span> Investment Pillars
+                    </div>
+                    <span style="background: #1e3a8a; color: white; padding: 6px 14px; border-radius: 30px; font-size: 12px;">
+                        Diversified Portfolio
+                    </span>
+                </div>
+                <div class="pillar-list" id="pillarAllocation"></div>
+            </div>
+            
+            <!-- COMPANY MILESTONES -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div class="chart-title">
+                        <span>🏆</span> Track Record
+                    </div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div>
+                        <h3 style="color: #1e3a8a; margin-bottom: 20px;">Since Inception (2015)</h3>
+                        <ul style="list-style: none;">
+                            <li style="margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+                                <span style="color: #059669;">✓</span> <strong>100%</strong> Payout Record
+                            </li>
+                            <li style="margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+                                <span style="color: #059669;">✓</span> <strong>10+ Years</strong> Continuous Operations
+                            </li>
+                            <li style="margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+                                <span style="color: #059669;">✓</span> <strong>56</strong> Institutional & HNI Investors
+                            </li>
+                            <li style="margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+                                <span style="color: #059669;">✓</span> <strong>₹2.6+ Cr</strong> Total Commitments
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="color: #1e3a8a; margin-bottom: 20px;">Compliance & Governance</h3>
+                        <ul style="list-style: none;">
+                            <li style="margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+                                <span style="color: #059669;">✓</span> Registered under Companies Act, 2013
+                            </li>
+                            <li style="margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+                                <span style="color: #059669;">✓</span> CIN: U70200MH2023PTC407336
+                            </li>
+                            <li style="margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+                                <span style="color: #059669;">✓</span> TAN: PNET17818D
+                            </li>
+                            <li style="margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+                                <span style="color: #059669;">✓</span> PAN: AAKCT2977J
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CRITICAL DISCLAIMER -->
+            <div class="disclaimer-box">
+                <strong style="display: block; margin-bottom: 12px;">⚠️ IMPORTANT DISCLOSURE</strong>
+                <p style="margin-bottom: 12px;">
+                    This consolidated information is for institutional investors and qualified high-net-worth individuals only. 
+                    Past performance is not indicative of future results. All investments carry risks, including possible loss of principal.
+                </p>
+                <p>
+                    <strong>TRFSK Omkar Services Pvt Ltd</strong> is a management consultancy registered under the Companies Act, 2013. 
+                    The company is <strong>not registered with SEBI or RBI</strong> for investment advisory or deposit-taking activities. 
+                    This private placement is conducted under Section 42 of the Companies Act, 2013 and is not a public offer.
+                </p>
+            </div>
+        </div>
+        
+        <div id="loadingState" class="loading">
+            <div style="font-size: 48px; margin-bottom: 20px;">📊</div>
+            <h2 style="margin-bottom: 12px;">Loading Consolidated Portfolio</h2>
+            <p style="color: #64748b;">Fetching institutional performance data...</p>
+        </div>
+        
+        <div class="footer">
+            <p>© 2015-2026 TRFSK Omkar Services Pvt Ltd. All rights reserved.</p>
+            <p style="margin-top: 8px;">CIN: U70200MH2023PTC407336 | Registered Office: Ulhasnagar, Thane - 421002</p>
+            <p style="margin-top: 16px;">
+                <a href="/santosh-shendkar/" style="color: #64748b; text-decoration: none;">← Santosh Shendkar - Founder</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Check prospect access and declarations
+        (function() {
+            const access = sessionStorage.getItem('prospectAccess');
+            const declarationAccepted = sessionStorage.getItem('declarationAccepted');
+            
+            if (!access || !declarationAccepted) {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Display prospect name
+            const prospectName = sessionStorage.getItem('prospectName') || 'Institutional Investor';
+            document.getElementById('prospectInfo').innerHTML = `
+                <span style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 20px;">👤</span>
+                    <span><strong>${prospectName}</strong> • Confidential Access Granted</span>
+                    <span style="margin-left: 16px; background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 30px; font-size: 12px;">
+                        Declaration Accepted: ${new Date(declarationAccepted).toLocaleDateString('en-IN')}
+                    </span>
+                </span>
+            `;
+        })();
+
+        // Load and display consolidated data
+        (async function() {
+            try {
+                // Fetch LIVE data from your Google Sheets
+                const allInvestors = await fetchInvestorData();
+                
+                // Calculate CONSOLIDATED totals
+                let totalInvestors = 0;
+                let totalAUM = 0;
+                let totalMonthlyPayout = 0;
+                let totalAnnualPayout = 0;
+                
+                // Count unique investors
+                const investorCount = Object.keys(allInvestors).length;
+                
+                // Sum all principals
+                Object.values(allInvestors).forEach(inv => {
+                    totalAUM += inv.totalPrincipal || 0;
+                    
+                    // Calculate monthly interest for all investments
+                    if (inv.investments) {
+                        inv.investments.forEach(inv => {
+                            const monthlyInterest = (inv.principal * inv.rate / 100) / 12;
+                            totalMonthlyPayout += monthlyInterest;
+                        });
+                    }
+                });
+                
+                totalAnnualPayout = totalMonthlyPayout * 12;
+                
+                // Hide loading, show dashboard
+                document.getElementById('loadingState').style.display = 'none';
+                document.getElementById('dashboardContent').style.display = 'block';
+                
+                // Consolidated Stats
+                document.getElementById('consolidatedStats').innerHTML = `
+                    <div class="stat-card">
+                        <div class="stat-label">Total AUM</div>
+                        <div class="stat-value">${formatCurrency(totalAUM)}</div>
+                        <div class="stat-trend">Assets Under Management</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Total Investors</div>
+                        <div class="stat-value">${investorCount}</div>
+                        <div class="stat-trend">Institutional & HNI</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Monthly Payout</div>
+                        <div class="stat-value">${formatCurrency(totalMonthlyPayout)}</div>
+                        <div class="stat-trend">Contractual Obligations</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Annual Distribution</div>
+                        <div class="stat-value">${formatCurrency(totalAnnualPayout)}</div>
+                        <div class="stat-trend">Before TDS</div>
+                    </div>
+                `;
+                
+                // Performance Metrics
+                const avgTicketSize = totalAUM / investorCount;
+                const avgROI = 21.5; // You can calculate weighted average from your data
+                
+                document.getElementById('performanceMetrics').innerHTML = `
+                    <div class="metric-item">
+                        <div class="metric-label">Average Investment</div>
+                        <div class="metric-value">${formatCurrency(avgTicketSize)}</div>
+                        <div class="metric-sub">Per Investor</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Weighted Avg ROI</div>
+                        <div class="metric-value">${avgROI}% p.a.</div>
+                        <div class="metric-sub">Contractual Rate</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Track Record</div>
+                        <div class="metric-value">10+ Years</div>
+                        <div class="metric-sub">Since 2015</div>
+                    </div>
+                `;
+                
+                // Investment Pillars (You can customize these)
+                document.getElementById('pillarAllocation').innerHTML = `
+                    <div class="pillar-item">
+                        <span class="pillar-name">MSME Business Funding</span>
+                        <span class="pillar-value">65%</span>
+                    </div>
+                    <div class="pillar-item">
+                        <span class="pillar-name">Real Estate Collateral</span>
+                        <span class="pillar-value">20%</span>
+                    </div>
+                    <div class="pillar-item">
+                        <span class="pillar-name">Working Capital</span>
+                        <span class="pillar-value">10%</span>
+                    </div>
+                    <div class="pillar-item">
+                        <span class="pillar-name">Liquidity Reserve</span>
+                        <span class="pillar-value">5%</span>
+                    </div>
+                `;
+                
+            } catch (error) {
+                console.error('Error loading consolidated data:', error);
+                document.getElementById('loadingState').innerHTML = `
+                    <div style="font-size: 48px; margin-bottom: 20px;">⚠️</div>
+                    <h2 style="margin-bottom: 12px; color: #dc2626;">Unable to Load Data</h2>
+                    <p style="color: #64748b; margin-bottom: 20px;">Please refresh or contact Santosh Shendkar</p>
+                    <button onclick="location.reload()" style="padding: 12px 24px; background: #1e3a8a; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                        Retry
+                    </button>
+                `;
+            }
+        })();
+    </script>
+</body>
+</html>

@@ -1,547 +1,253 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Contact Us | Omkar Services Group</title>
-    <meta name="description" content="Contact Omkar Services Group for management consultancy and IT services.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     
-    <!-- ALL CSS IS RIGHT HERE - NO EXTERNAL FILES NEEDED -->
+    <title>Contact Omkar Services Group | Management & IT Solutions India</title>
+    <meta name="description" content="Official contact page for Omkar Services Group. Reach TRFSK Management Consultancy or Omkar Enterprises IT Services. Get expert business solutions in India.">
+    <link rel="canonical" href="https://omkarservices.in/contact/">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Omkar Services Group",
+      "url": "https://omkarservices.in",
+      "contactPoint": [
+        {"@type": "ContactPoint", "telephone": "+91-8169302861", "contactType": "Management"},
+        {"@type": "ContactPoint", "telephone": "+91-7066393830", "contactType": "IT Support"}
+      ]
+    }
+    </script>
+
     <style>
-        /* ===== COMPLETE STYLES FOR CONTACT PAGE ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary: #1e3a8a;
+            --accent: #2563eb;
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --border: #e2e8f0;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #1e293b;
-            background: #ffffff;
-            overflow-x: hidden;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            overflow-x: hidden; /* Prevents horizontal scroll on mobile */
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .wrapper { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+
+        /* Navigation */
+        .header-nav { padding: 20px 0; }
+        .btn-back { text-decoration: none; color: var(--primary); font-weight: 700; font-size: 0.9rem; }
+
+        /* Hero */
+        .hero { text-align: center; padding: 40px 0; }
+        .hero h1 { font-size: 2.5rem; color: var(--primary); margin-bottom: 10px; }
+        .hero p { color: #64748b; max-width: 600px; margin: 0 auto; }
+
+        /* Cards Grid */
+        .contact-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 20px; 
+            margin-bottom: 40px; 
+        }
+        .card { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 15px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+        .card h2 { font-size: 1.25rem; color: var(--primary); margin-bottom: 15px; }
+        .card p { font-size: 0.95rem; margin-bottom: 8px; }
+        .card a { color: var(--accent); text-decoration: none; word-break: break-all; }
+
+        /* FORM SECTION - FIXED MOBILE ALIGNMENT */
+        .form-card { 
+            background: white; 
+            padding: 40px 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 60px;
+        }
+        .form-card h2 { margin-bottom: 25px; text-align: center; color: var(--primary); }
+
+        .contact-form { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 20px; 
+        }
+
+        /* Logic: 50% width on Desktop, 100% width on Mobile */
+        .form-group { 
+            flex: 1 1 calc(50% - 20px); 
+            display: flex; 
+            flex-direction: column; 
+            min-width: 280px; /* Forces stack on narrow screens */
+        }
+
+        .form-group.full { flex: 1 1 100%; }
+
+        label { font-weight: 600; margin-bottom: 8px; font-size: 0.9rem; }
+        
+        input, select, textarea {
             width: 100%;
+            padding: 12px 15px;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-size: 16px; /* Prevents iOS zoom on focus */
+            transition: border 0.3s ease;
         }
 
-        /* Header */
-        .header {
-            padding: 20px 0;
-            border-bottom: 1px solid #e2e8f0;
-            margin-bottom: 30px;
-        }
+        input:focus, textarea:focus { outline: none; border-color: var(--accent); }
 
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            color: #1e3a8a;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-
-        /* Page Title */
-        .page-title {
-            margin-bottom: 40px;
-        }
-
-        .page-title h1 {
-            font-size: 42px;
-            font-weight: 800;
-            color: #1e3a8a;
-            margin-bottom: 12px;
-        }
-
-        /* Contact Grid */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .contact-card {
-            background: #f8fafc;
-            border-radius: 20px;
-            padding: 35px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .card-icon {
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
-
-        .contact-card h2 {
-            font-size: 24px;
-            color: #1e3a8a;
-            margin-bottom: 15px;
-        }
-
-        .company-detail {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .company-detail:last-child {
-            border-bottom: none;
-        }
-
-        .company-detail strong {
-            display: block;
-            color: #1e293b;
-            margin-bottom: 5px;
-        }
-
-        .company-detail a {
-            color: #1e3a8a;
-            text-decoration: none;
-        }
-
-        /* Office Locations */
-        .offices {
-            margin: 50px 0;
-        }
-
-        .offices h2 {
-            font-size: 32px;
-            color: #1e3a8a;
-            margin-bottom: 30px;
-        }
-
-        .office-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        .office-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 30px;
-        }
-
-        .office-card h3 {
-            font-size: 22px;
-            color: #1e3a8a;
-            margin-bottom: 15px;
-        }
-
-        /* Contact Form */
-        .form-section {
-            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-            border-radius: 24px;
-            padding: 50px;
-            margin: 50px 0;
-            border: 1px solid #e2e8f0;
-        }
-
-        .form-section h2 {
-            font-size: 32px;
-            color: #1e3a8a;
-            margin-bottom: 12px;
-        }
-
-        .contact-form {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 0;
-        }
-
-        .form-group.full-width {
-            grid-column: span 2;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #1e293b;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .submit-btn {
             width: 100%;
-            padding: 14px 18px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 16px;
-        }
-
-        .btn {
-            grid-column: span 2;
-            padding: 16px 32px;
-            background: #1e3a8a;
+            background: var(--primary);
             color: white;
+            padding: 16px;
             border: none;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: 600;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
             cursor: pointer;
-            width: fit-content;
-            justify-self: center;
-            min-width: 250px;
+            transition: background 0.3s ease;
+            margin-top: 10px;
         }
 
-        /* ===== MOBILE FIXES - THIS IS WHAT YOU NEED ===== */
-        @media (max-width: 768px) {
-            .contact-grid,
-            .office-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
+        .submit-btn:hover { background: var(--accent); }
 
-            .contact-form {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .form-group.full-width {
-                grid-column: span 1;
-            }
-
-            .btn {
-                grid-column: span 1;
-                width: 100%;
-                min-width: auto;
-            }
-
-            .form-section {
-                padding: 30px 20px;
-            }
-
-            .page-title h1 {
-                font-size: 32px;
-            }
+        /* Footer */
+        footer { background: #0f172a; color: white; padding: 60px 0 20px; margin-top: 40px; }
+        .footer-content { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 40px; 
+            padding-bottom: 40px;
         }
+        .footer-col h3 { margin-bottom: 20px; font-size: 1.2rem; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-col a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; }
+        .footer-bottom { border-top: 1px solid #1e293b; padding-top: 20px; text-align: center; color: #64748b; font-size: 0.8rem; }
 
-        @media (max-width: 480px) {
-            .contact-card,
-            .office-card {
-                padding: 20px;
-            }
+        /* SUCCESS MESSAGE */
+        .alert { display: none; padding: 15px; background: #dcfce7; color: #166534; border-radius: 8px; margin-bottom: 20px; text-align: center; }
 
-            .form-section {
-                padding: 25px 15px;
-            }
-
-            .page-title h1 {
-                font-size: 28px;
-            }
+        /* MOBILE SPECIFIC OVERRIDES */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.8rem; }
+            .form-card { padding: 25px 15px; }
+            .form-group { flex: 1 1 100%; } /* Strict stack on small phones */
+            .submit-btn { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <a href="../" class="back-link">← Back to Home</a>
-        </div>
 
-        <div class="page-title">
-            <h1>Contact Us</h1>
-            <p>Get in touch with our team for business inquiries.</p>
-        </div>
+<div class="wrapper">
+    <header class="header-nav">
+        <a href="/" class="btn-back">← BACK TO HOME</a>
+    </header>
 
-        <!-- Success/Error Messages -->
-        <div id="successMessage" style="background: #dcfce7; color: #166534; padding: 20px; border-radius: 12px; margin-bottom: 24px; display: none; text-align: center;">
-            ✅ Thank you for contacting us! We'll respond within 24-48 hours.
-        </div>
-        <div id="errorMessage" style="background: #fee2e2; color: #991b1b; padding: 20px; border-radius: 12px; margin-bottom: 24px; display: none; text-align: center;">
-            ❌ There was an error sending your message. Please try again.
-        </div>
+    <section class="hero">
+        <h1>Contact Our Group</h1>
+        <p>Expert Management Consultancy & Enterprise IT Solutions. We respond to all inquiries within 24 hours.</p>
+    </section>
 
-        <!-- Contact Cards -->
-        <div class="contact-grid">
-            <!-- TRFSK Card -->
-            <div class="contact-card">
-                <div class="card-icon">📊</div>
-                <h2>TRFSK Omkar Services Pvt Ltd</h2>
-                <div class="company-detail">
-                    <strong>Management Consultancy</strong>
-                    <p>CIN: U70200MH2023PTC407336</p>
-                </div>
-                <div class="company-detail">
-                    <strong>Email</strong>
-                    <p><a href="mailto:consult@omkarservices.in">consult@omkarservices.in</a></p>
-                </div>
-                <div class="company-detail">
-                    <strong>Phone</strong>
-                    <p><a href="tel:+918169302861">+91 81693 02861</a></p>
-                </div>
+    <section class="contact-grid">
+        <div class="card">
+            <h2>TRFSK Management</h2>
+            <p><strong>Focus:</strong> Business Strategy & ROI</p>
+            <p>Email: <a href="mailto:consult@omkarservices.in">consult@omkarservices.in</a></p>
+            <p>Phone: <a href="tel:+918169302861">+91 81693 02861</a></p>
+        </div>
+        <div class="card">
+            <h2>Omkar Enterprises</h2>
+            <p><strong>Focus:</strong> IT Services & Tech Support</p>
+            <p>Email: <a href="mailto:info@omkarenterprises.co.in">info@omkarenterprises.co.in</a></p>
+            <p>Phone: <a href="tel:+917066393830">+91 70663 93830</a></p>
+        </div>
+    </section>
+
+    <section class="form-card">
+        <h2>Send a Business Message</h2>
+        <div id="msgAlert" class="alert">Message sent successfully! We will contact you soon.</div>
+        
+        <form id="groupContactForm" class="contact-form">
+            <div class="form-group">
+                <label for="u_name">Full Name *</label>
+                <input type="text" id="u_name" required placeholder="Enter your name">
             </div>
-
-            <!-- Omkar Enterprises Card -->
-            <div class="contact-card">
-                <div class="card-icon">💻</div>
-                <h2>Omkar Enterprises</h2>
-                <div class="company-detail">
-                    <strong>IT Services</strong>
-                    <p>UDYAM: UDYAM-MH-26-0559186</p>
-                </div>
-                <div class="company-detail">
-                    <strong>Email</strong>
-                    <p><a href="mailto:info@omkarenterprises.co.in">info@omkarenterprises.co.in</a></p>
-                </div>
-                <div class="company-detail">
-                    <strong>Phone</strong>
-                    <p><a href="tel:+917066393830">+91 70663 93830</a></p>
-                </div>
+            <div class="form-group">
+                <label for="u_email">Email Address *</label>
+                <input type="email" id="u_email" required placeholder="email@company.com">
             </div>
+            <div class="form-group">
+                <label for="u_phone">Phone Number</label>
+                <input type="tel" id="u_phone" placeholder="+91">
+            </div>
+            <div class="form-group">
+                <label for="u_dept">Service Required *</label>
+                <select id="u_dept" required>
+                    <option value="">-- Select --</option>
+                    <option>Management Consultancy</option>
+                    <option>IT Solutions</option>
+                    <option>General Support</option>
+                </select>
+            </div>
+            <div class="form-group full">
+                <label for="u_msg">Message *</label>
+                <textarea id="u_msg" rows="4" required placeholder="How can we help your business?"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">SEND INQUIRY</button>
+        </form>
+    </section>
+</div>
+
+<footer>
+    <div class="wrapper footer-content">
+        <div class="footer-col">
+            <h3>Omkar Services Group</h3>
+            <p>Leading the way in Management and Technology solutions across India since 2015.</p>
         </div>
-
-        <!-- Contact Form -->
-        <div class="form-section">
-            <h2>Send a Message</h2>
-            <p>Fill out the form below and we'll get back to you within 24 hours.</p>
-
-            <form id="contactForm" class="contact-form">
-                <div class="form-group">
-                    <label for="name">Full Name *</label>
-                    <input type="text" id="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="tel" id="phone" placeholder="10-digit mobile">
-                </div>
-                <div class="form-group">
-                    <label for="department">Department *</label>
-                    <select id="department" required>
-                        <option value="">-- Select --</option>
-                        <option value="consulting">Management Consultancy</option>
-                        <option value="it">IT Services</option>
-                        <option value="general">General Inquiry</option>
-                    </select>
-                </div>
-                <div class="form-group full-width">
-                    <label for="message">Message *</label>
-                    <textarea id="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn">Send Message →</button>
-            </form>
+        <div class="footer-col">
+            <h3>Our Services</h3>
+            <ul>
+                <li><a href="/trfsk/">Strategic Consulting</a></li>
+                <li><a href="/omkar-enterprises/">IT Infrastructure</a></li>
+                <li><a href="/blog/">Industry Insights</a></li>
+            </ul>
         </div>
-
-        <!-- ===== PROFESSIONAL SEO FOOTER ===== -->
-<footer class="seo-footer">
-
-<div class="footer-container">
-
-<!-- COMPANY INFO -->
-<div class="footer-column">
-<h3>Omkar Services Group</h3>
-
-<p>
-Professional Management Consultancy and IT Solutions provider delivering
-business consulting, enterprise technology solutions, and strategic growth
-services across India.
-</p>
-
-<p><strong>Experience:</strong> 14+ Years</p>
-<p><strong>Service Coverage:</strong> PAN India</p>
-
-</div>
-
-<!-- QUICK LINKS -->
-<div class="footer-column">
-<h4>Quick Links</h4>
-
-<ul>
-<li><a href="/">Home</a></li>
-<li><a href="/about/">About Us</a></li>
-<li><a href="/services/">Our Services</a></li>
-<li><a href="/consulting/">Management Consultancy</a></li>
-<li><a href="/it-services/">IT Services</a></li>
-<li><a href="/contact/">Contact Us</a></li>
-</ul>
-
-</div>
-
-<!-- KNOWLEDGE & RESOURCES -->
-<div class="footer-column">
-<h4>Knowledge & Resources</h4>
-
-<ul>
-<li><a href="/blog/">Business Knowledge Blog</a></li>
-<li><a href="/case-studies/">Case Studies</a></li>
-<li><a href="/technology-solutions/">Technology Solutions</a></li>
-<li><a href="/enterprise-growth/">Enterprise Growth Strategies</a></li>
-<li><a href="/digital-transformation/">Digital Transformation</a></li>
-</ul>
-
-</div>
-
-<!-- SERVICES -->
-<div class="footer-column">
-<h4>Our Core Services</h4>
-
-<ul>
-<li>Business Management Consultancy</li>
-<li>Enterprise IT Solutions</li>
-<li>Technology Consulting</li>
-<li>Corporate Strategy Planning</li>
-<li>Digital Business Transformation</li>
-<li>Process Optimization Services</li>
-</ul>
-
-</div>
-
-<!-- CONTACT -->
-<div class="footer-column">
-<h4>Contact Information</h4>
-
-<p><strong>TRFSK Omkar Services Pvt Ltd</strong></p>
-<p>CIN: U70200MH2023PTC407336</p>
-<p>Email: <a href="mailto:consult@omkarservices.in">consult@omkarservices.in</a></p>
-<p>Phone: <a href="tel:+918169302861">+91 81693 02861</a></p>
-
-<br>
-
-<p><strong>Omkar Enterprises</strong></p>
-<p>UDYAM: UDYAM-MH-26-0559186</p>
-<p>Email: <a href="mailto:info@omkarenterprises.co.in">info@omkarenterprises.co.in</a></p>
-<p>Phone: <a href="tel:+917066393830">+91 70663 93830</a></p>
-
-</div>
-
-</div>
-
-<!-- BOTTOM BAR -->
-<div class="footer-bottom">
-
-<p>© 2015-2026 Omkar Services Group. All Rights Reserved.</p>
-
-<div class="footer-bottom-links">
-<a href="/privacy-policy/">Privacy Policy</a>
-<a href="/terms/">Terms & Conditions</a>
-<a href="/disclaimer/">Disclaimer</a>
-<a href="/sitemap.xml">Sitemap</a>
-</div>
-
-</div>
-
+        <div class="footer-col">
+            <h3>Legal</h3>
+            <ul>
+                <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                <li><a href="/terms/">Terms of Use</a></li>
+                <li><a href="/disclaimer/">Disclaimer</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2015-2026 Omkar Services Group. All Rights Reserved.</p>
+    </div>
 </footer>
 
-<style>
+<script>
+    document.getElementById('groupContactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('msgAlert').style.display = 'block';
+        this.reset();
+        window.scrollTo({ top: document.getElementById('msgAlert').offsetTop - 50, behavior: 'smooth' });
+    });
+</script>
 
-/* ===== FOOTER STYLE ===== */
-
-.seo-footer{
-background:#0f172a;
-color:#cbd5e1;
-margin-top:60px;
-}
-
-.footer-container{
-max-width:1200px;
-margin:auto;
-padding:50px 20px;
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:30px;
-}
-
-.footer-column h3,
-.footer-column h4{
-color:#ffffff;
-margin-bottom:15px;
-}
-
-.footer-column p{
-font-size:14px;
-margin-bottom:10px;
-}
-
-.footer-column ul{
-list-style:none;
-}
-
-.footer-column ul li{
-margin-bottom:8px;
-}
-
-.footer-column a{
-color:#cbd5e1;
-text-decoration:none;
-font-size:14px;
-transition:0.3s;
-}
-
-.footer-column a:hover{
-color:#38bdf8;
-}
-
-/* BOTTOM BAR */
-
-.footer-bottom{
-border-top:1px solid #1e293b;
-padding:20px;
-text-align:center;
-}
-
-.footer-bottom-links{
-margin-top:10px;
-}
-
-.footer-bottom-links a{
-margin:0 12px;
-color:#94a3b8;
-font-size:14px;
-text-decoration:none;
-}
-
-.footer-bottom-links a:hover{
-color:#38bdf8;
-}
-
-/* MOBILE RESPONSIVE */
-
-@media(max-width:900px){
-
-.footer-container{
-grid-template-columns:repeat(2,1fr);
-}
-
-}
-
-@media(max-width:500px){
-
-.footer-container{
-grid-template-columns:1fr;
-text-align:center;
-}
-
-.footer-bottom-links a{
-display:block;
-margin:8px 0;
-}
-
-}
-
-</style>
-
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            document.getElementById('successMessage').style.display = 'block';
-            this.reset();
-        });
-    </script>
 </body>
 </html>

@@ -9,6 +9,9 @@
 
     <!-- 🔴 FIXED: Correct path to analytics.js -->
     <script src="../js/analytics.js"></script>
+    
+    <!-- 🔴 IMPORTANT: Added global CSS link for consistent styling across all pages -->
+    <link rel="stylesheet" href="../css/global.css">
 
     <!-- Schema Markup for Contact Page -->
     <script type="application/ld+json">
@@ -50,36 +53,38 @@
       }
     }
     </script>
-
+    
+    <!-- Page-specific styles (keep these, they work with global.css) -->
     <style>
-        /* ===== RESET & BASE ===== */
+        /* Keep all your existing page-specific styles here */
+        /* They will work together with global.css */
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #1e293b;
             background: #ffffff;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-            width: 100%;
         }
-
+        
         /* Header */
         .header {
             padding: 20px 0;
             border-bottom: 1px solid #e2e8f0;
             margin-bottom: 30px;
         }
-
+        
         .back-link {
             display: inline-flex;
             align-items: center;
@@ -88,39 +93,40 @@
             color: #1e3a8a;
             font-weight: 500;
             font-size: 15px;
+            margin-bottom: 20px;
         }
-
+        
         .back-link:hover {
             color: #2563eb;
         }
-
+        
         /* Page Title */
         .page-title {
             margin-bottom: 40px;
         }
-
+        
         .page-title h1 {
-            font-size: clamp(28px, 5vw, 42px);
+            font-size: 42px;
             font-weight: 800;
             color: #1e3a8a;
             margin-bottom: 12px;
             line-height: 1.2;
         }
-
+        
         .page-title p {
-            font-size: clamp(16px, 2.5vw, 18px);
+            font-size: 18px;
             color: #475569;
             max-width: 800px;
         }
-
+        
         /* Contact Grid */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr 1fr;
             gap: 30px;
             margin-bottom: 50px;
         }
-
+        
         .contact-card {
             background: #f8fafc;
             border-radius: 20px;
@@ -128,58 +134,57 @@
             border: 1px solid #e2e8f0;
             transition: all 0.3s;
         }
-
+        
         .contact-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.05);
             border-color: #1e3a8a;
         }
-
+        
         .card-icon {
             font-size: 40px;
             margin-bottom: 20px;
         }
-
+        
         .contact-card h2 {
             font-size: 24px;
             color: #1e3a8a;
             margin-bottom: 15px;
         }
-
+        
         .company-detail {
             margin-bottom: 20px;
             padding-bottom: 20px;
             border-bottom: 1px solid #e2e8f0;
         }
-
+        
         .company-detail:last-child {
             border-bottom: none;
             padding-bottom: 0;
         }
-
+        
         .company-detail strong {
             display: block;
             color: #1e293b;
             margin-bottom: 5px;
             font-size: 15px;
         }
-
-        .company-detail p, .company-detail a {
+        
+        .company-detail p {
             color: #475569;
             line-height: 1.7;
-            word-break: break-word;
         }
-
+        
         .company-detail a {
             color: #1e3a8a;
             text-decoration: none;
             font-weight: 500;
         }
-
+        
         .company-detail a:hover {
             text-decoration: underline;
         }
-
+        
         .badge {
             display: inline-block;
             background: #e2e8f0;
@@ -189,24 +194,24 @@
             color: #475569;
             margin-top: 8px;
         }
-
+        
         /* Office Locations */
         .offices {
             margin: 50px 0;
         }
-
+        
         .offices h2 {
-            font-size: clamp(28px, 4vw, 32px);
+            font-size: 32px;
             color: #1e3a8a;
             margin-bottom: 30px;
         }
-
+        
         .office-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 30px;
         }
-
+        
         .office-card {
             background: white;
             border: 1px solid #e2e8f0;
@@ -214,7 +219,7 @@
             padding: 30px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
-
+        
         .office-card h3 {
             font-size: 22px;
             color: #1e3a8a;
@@ -223,14 +228,13 @@
             align-items: center;
             gap: 8px;
         }
-
+        
         .office-card p {
             color: #475569;
             margin-bottom: 8px;
             line-height: 1.7;
-            word-break: break-word;
         }
-
+        
         .office-card .landmark {
             margin-top: 15px;
             padding-top: 15px;
@@ -238,7 +242,7 @@
             font-size: 14px;
             color: #64748b;
         }
-
+        
         .map-link {
             display: inline-block;
             margin-top: 20px;
@@ -251,13 +255,13 @@
             font-weight: 500;
             transition: all 0.2s;
         }
-
+        
         .map-link:hover {
             background: #1e3a8a;
             color: white;
         }
-
-        /* ===== CONTACT FORM - FULLY RESPONSIVE ===== */
+        
+        /* Contact Form Section */
         .form-section {
             background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
             border-radius: 24px;
@@ -265,33 +269,32 @@
             margin: 50px 0;
             border: 1px solid #e2e8f0;
         }
-
+        
         .form-section h2 {
-            font-size: clamp(28px, 4vw, 32px);
+            font-size: 32px;
             color: #1e3a8a;
             margin-bottom: 12px;
         }
-
+        
         .form-section > p {
             color: #64748b;
             margin-bottom: 30px;
-            font-size: clamp(14px, 2vw, 16px);
         }
-
+        
         .contact-form {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
-
+        
         .form-group {
             margin-bottom: 0;
         }
-
+        
         .form-group.full-width {
             grid-column: span 2;
         }
-
+        
         .form-group label {
             display: block;
             margin-bottom: 8px;
@@ -299,7 +302,7 @@
             color: #1e293b;
             font-size: 14px;
         }
-
+        
         .form-group input,
         .form-group select,
         .form-group textarea {
@@ -310,10 +313,8 @@
             font-size: 16px;
             transition: all 0.2s;
             font-family: inherit;
-            -webkit-appearance: none;
-            appearance: none;
         }
-
+        
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
@@ -321,12 +322,12 @@
             border-color: #1e3a8a;
             box-shadow: 0 0 0 3px rgba(30,58,138,0.1);
         }
-
+        
         .form-group textarea {
             resize: vertical;
             min-height: 120px;
         }
-
+        
         .btn {
             grid-column: span 2;
             padding: 16px 32px;
@@ -342,19 +343,19 @@
             justify-self: center;
             min-width: 250px;
         }
-
+        
         .btn:hover {
             background: #2563eb;
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(30,58,138,0.2);
         }
-
+        
         .btn:disabled {
             background: #94a3b8;
             cursor: not-allowed;
             transform: none;
         }
-
+        
         .form-note {
             grid-column: span 2;
             text-align: center;
@@ -362,7 +363,7 @@
             font-size: 13px;
             margin-top: 10px;
         }
-
+        
         /* Success/Error Messages */
         .success-message,
         .error-message {
@@ -470,7 +471,6 @@
                 gap: 20px;
             }
 
-            /* 🔴 CRITICAL: Make form single column on mobile */
             .contact-form {
                 grid-template-columns: 1fr;
                 gap: 15px;
@@ -497,9 +497,12 @@
             .investor-btn {
                 width: 100%;
             }
+            
+            .page-title h1 {
+                font-size: 32px;
+            }
         }
 
-        /* Extra small devices */
         @media (max-width: 480px) {
             .contact-card,
             .office-card {
@@ -522,6 +525,10 @@
             .form-group select,
             .form-group textarea {
                 padding: 12px 14px;
+            }
+            
+            .page-title h1 {
+                font-size: 28px;
             }
         }
     </style>
